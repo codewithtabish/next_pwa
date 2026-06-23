@@ -19,6 +19,18 @@ export const metadata: Metadata = {
   manifest:'/manifest.json',
   icons:{
     icon:"/favicon.png"
+  },
+  openGraph:{
+        title: "CodeWithTabish",
+    description: "Learn Web Development, Mobile Development, DevOps and AI with Tabish.",
+    images: ["/opengraph-image.jpg"],
+  },
+  twitter:{
+        card: "summary_large_image",
+    title: "CodeWithTabish",
+    description: "Learn Web Development, Mobile Development, DevOps and AI with Tabish.",
+    images: ["/twitter-image.jpg"],
+
   }
 };
 
