@@ -4,7 +4,7 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-28">
       
       {/* Sticky Header */}
       <div className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
