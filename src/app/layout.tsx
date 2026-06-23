@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 
 export const metadata: Metadata = {
-  title: "CodeWithTabish - Learn Web Development, Mobile Dev, DevOps & AI",
+  title: "CodeWithTabish - Learn Web Development, Mobile Dev",
   description:
     "Learn Web Development, Mobile App Development, DevOps, and AI Engineering with CodeWithTabish. Build real-world projects and become job-ready.",
 

@@ -15,6 +15,10 @@ const HomePage = () => {
       <br />
       <br />
       <Button variant="outline" className='cursor-pointer'>Button</Button>
+      <br />
+      <Link href={'/blog'}>
+      Blog
+      </Link>
       
 
     </div>
