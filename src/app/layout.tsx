@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import type { LayoutProps } from "@/types";
+import { ThemeProvider } from "@/components/general/(themes)/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,13 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "CodeWithTabish - Learn Web Development, Mobile Dev",
   description:
     "Learn Web Development, Mobile App Development, DevOps, and AI Engineering with CodeWithTabish. Build real-world projects and become job-ready.",
 
   manifest: "/manifest.json",
+
+  metadataBase: new URL("http://localhost:3000"),
 
   icons: {
     icon: "/favicon.png",
@@ -50,15 +51,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({children,params}:LayoutProps) {
-  const resolvedParams=await params
-  console.log(resolvedParams)
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col ">{children}</body>
+      <body className="min-h-screen flex flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

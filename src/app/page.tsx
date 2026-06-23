@@ -1,39 +1,30 @@
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import React from 'react'
+import { StoriesList } from "@/components/general/(home)/story-list";
+import { ModeToggle } from "@/components/general/(themes)/mode-toggle";
+import React from "react";
 
 const HomePage = () => {
   return (
-    <div className='py-20 mx-8 text-justify '>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat earum, perspiciatis asperiores magnam harum nostrum eaque explicabo laudantium accusantium temporibus ex illo optio recusandae beatae velit! Consequuntur asperiores nihil voluptates.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi, est itaque enim laudantium rem quis accusamus iste, veritatis, rerum aspernatur qui nostrum eius quam autem exercitationem. Iste, ratione ea!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod animi, est itaque enim laudantium rem quis accusamus iste, veritatis, rerum aspernatur qui nostrum eius quam autem exercitationem. Iste, ratione ea!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam sequi harum fuga id nostrum ex sapiente molestiae? Distinctio vitae iste, nam repellat possimus harum dolore dignissimos impedit rem quidem voluptates.
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam sequi harum fuga id nostrum ex sapiente molestiae? Distinctio vitae iste, nam repellat possimus harum dolore dignissimos impedit rem quidem voluptates.
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam sequi harum fuga id nostrum ex sapiente molestiae? Distinctio vitae iste, nam repellat possimus harum dolore dignissimos impedit rem quidem voluptates.
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam sequi harum fuga id nostrum ex sapiente molestiae? Distinctio vitae iste, nam repellat possimus harum dolore dignissimos impedit rem quidem voluptates.
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam sequi harum fuga id nostrum ex sapiente molestiae? Distinctio vitae iste, nam repellat possimus harum dolore dignissimos impedit rem quidem voluptates.
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam sequi harum fuga id nostrum ex sapiente molestiae? Distinctio vitae iste, nam repellat possimus harum dolore dignissimos impedit rem quidem voluptates.
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam sequi harum fuga id nostrum ex sapiente molestiae? Distinctio vitae iste, nam repellat possimus harum dolore dignissimos impedit rem quidem voluptates.
-
-
-
-        <Link href={'/about'}>
-      About Page
-      </Link>
-      <br />
-      <br />
-      <Button variant="outline" className='cursor-pointer'>Button</Button>
-      <br />
-      <Link href={'/blog'}>
-      Blog
-      </Link>
+    <div className="min-h-screen bg-background">
       
+      {/* Sticky Header */}
+      <div className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          
+          <h1 className="text-lg font-semibold">
+            📖 Stories
+          </h1>
+
+          <ModeToggle />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-6xl mx-auto px-4 py-6">
+        <StoriesList />
+      </div>
 
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
-
-
+export default HomePage;
