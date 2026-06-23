@@ -1,4 +1,4 @@
-import { StoriesList } from "@/components/general/(home)/story-list";
+import { StoryTabs } from "@/components/general/(home)/story-tab";
 import { ModeToggle } from "@/components/general/(themes)/mode-toggle";
 import React from "react";
 
@@ -20,7 +20,7 @@ const HomePage = () => {
 
       {/* Content */}
       <div className="max-w-6xl mx-auto px-4 py-6">
-        <StoriesList />
+        <StoryTabs/>
       </div>
 
     </div>
