@@ -105,4 +105,10 @@ export const stories: Story[] = [
     content:
       "At 2 AM, a junior developer deployed his first application. There were no celebrations, no audience — just silence and a running server.\n\nBut for him, it was the beginning of everything.\n\nEvery expert was once a beginner who deployed their first broken app.",
   },
+  {
+    id: 15,
+    title: "The Last Deployment",
+    content:
+      "At 2 AM, a junior developer deployed his first application. There were no celebrations, no audience — just silence and a running server.\n\nBut for him, it was the beginning of everything.\n\nEvery expert was once a beginner who deployed their first broken app.",
+  },
 ];
