@@ -13,10 +13,61 @@ import { StoryCard } from "./story-card";
 export function StoryTabs() {
   return (
     <Tabs defaultValue="all" className="w-full">
-      <TabsList className="mb-6">
-        <TabsTrigger value="all">All Stories</TabsTrigger>
-        <TabsTrigger value="popular">Popular</TabsTrigger>
-        <TabsTrigger value="recent">Recent</TabsTrigger>
+      <TabsList
+        className="
+          mb-6
+          grid
+          w-full
+          grid-cols-3
+          rounded-xl
+          bg-muted/50
+          p-1
+        "
+      >
+        <TabsTrigger
+          value="all"
+          className="
+            rounded-lg
+            data-[state=active]:bg-background
+            data-[state=active]:shadow-md
+            data-[state=active]:text-primary
+            data-[state=active]:font-semibold
+            transition-all
+            duration-300
+          "
+        >
+          📚 All
+        </TabsTrigger>
+
+        <TabsTrigger
+          value="popular"
+          className="
+            rounded-lg
+            data-[state=active]:bg-background
+            data-[state=active]:shadow-md
+            data-[state=active]:text-primary
+            data-[state=active]:font-semibold
+            transition-all
+            duration-300
+          "
+        >
+          🔥 Popular
+        </TabsTrigger>
+
+        <TabsTrigger
+          value="recent"
+          className="
+            rounded-lg
+            data-[state=active]:bg-background
+            data-[state=active]:shadow-md
+            data-[state=active]:text-primary
+            data-[state=active]:font-semibold
+            transition-all
+            duration-300
+          "
+        >
+          ✨ Recent
+        </TabsTrigger>
       </TabsList>
 
       <TabsContent value="all">
