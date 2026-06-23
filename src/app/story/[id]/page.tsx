@@ -2,14 +2,15 @@ import { stories } from "@/data/stories";
 import { notFound } from "next/navigation";
 
 interface StoryPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function StoryPage({ params }: StoryPageProps) {
-    const myParsms=await  params
-  const story = stories.find((s) => s.id === Number(myParsms.id));
+  const { id } = await params;
+
+  const story = stories.find((s) => s.id === Number(id));
 
   if (!story) {
     return notFound();
