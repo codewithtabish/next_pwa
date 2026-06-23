@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Home,
-  BookOpen,
-  Heart,
-  Settings,
-} from "lucide-react";
+import { Home, BookOpen, Heart, Settings } from "lucide-react";
 
 export function MobileBottomNav() {
   const pathname = usePathname();
@@ -46,15 +41,15 @@ export function MobileBottomNav() {
         z-50
         border-t
         bg-background/95
-        backdrop-blur
+        backdrop-blur-xl
+        supports-[backdrop-filter]:bg-background/80
       "
     >
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 px-2 py-2">
         {links.map((link) => {
           const Icon = link.icon;
 
-          const active =
-            pathname === link.href;
+          const active = pathname === link.href;
 
           return (
             <Link
@@ -62,30 +57,46 @@ export function MobileBottomNav() {
               href={link.href}
               className="
                 flex
-                flex-col
                 items-center
                 justify-center
-                py-3
-                text-xs
               "
             >
-              <Icon
-                className={`h-5 w-5 mb-1 ${
-                  active
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-              />
-
-              <span
-                className={
-                  active
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }
+              <div
+                className={`
+                  flex flex-col items-center justify-center
+                  rounded-2xl px-3 py-2
+                  transition-all duration-300
+                  ${
+                    active
+                      ? "bg-primary/10 shadow-sm scale-105"
+                      : "hover:bg-muted"
+                  }
+                `}
               >
-                {link.label}
-              </span>
+                <Icon
+                  className={`
+                    h-5 w-5 mb-1 transition-all duration-300
+                    ${
+                      active
+                        ? "text-primary scale-110"
+                        : "text-muted-foreground"
+                    }
+                  `}
+                />
+
+                <span
+                  className={`
+                    text-[11px] font-medium transition-colors
+                    ${
+                      active
+                        ? "text-primary"
+                        : "text-muted-foreground"
+                    }
+                  `}
+                >
+                  {link.label}
+                </span>
+              </div>
             </Link>
           );
         })}
