@@ -24,6 +24,11 @@ import {
   Bell,
   Info,
   ChevronRight,
+  Globe,
+  Shield,
+  Trash2,
+  Download,
+  Smartphone,
 } from "lucide-react";
 
 import { useTheme } from "next-themes";
@@ -33,65 +38,59 @@ export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
 
   const [notifications, setNotifications] = useState(true);
+  const [offlineMode, setOfflineMode] = useState(false);
+  const [analytics, setAnalytics] = useState(true);
 
   return (
-    <div className="min-h-screen bg-background px-4 py-6">
-      <div className="max-w-2xl mx-auto space-y-6">
+    <div className="h-screen overflow-y-auto bg-background">
 
-        {/* Header */}
-        <div className="flex items-center gap-2">
+      {/* Sticky Header */}
+      <div className="sticky top-0 z-10 bg-background/80 backdrop-blur border-b">
+        <div className="max-w-2xl mx-auto px-4 py-4 flex items-center gap-2">
           <Settings className="h-5 w-5 text-primary" />
-          <h1 className="text-xl font-semibold">
-            Settings
-          </h1>
+          <h1 className="text-lg font-semibold">Settings</h1>
         </div>
+      </div>
 
-        {/* Profile Card */}
-        <Card className="rounded-2xl">
+      {/* Content */}
+      <div className="max-w-2xl mx-auto px-4 py-6 space-y-6 pb-24">
+
+        {/* ACCOUNT */}
+        <Card className="rounded-2xl shadow-sm">
           <CardHeader>
-            <CardTitle className="text-base">
-              Account
-            </CardTitle>
+            <CardTitle className="text-base">Account</CardTitle>
           </CardHeader>
 
-          <CardContent className="space-y-4">
-            <Button
-              variant="outline"
-              className="w-full justify-between"
-            >
+          <CardContent className="space-y-3">
+            <Button className="w-full justify-between active:scale-[0.98] transition">
               Edit Profile
               <ChevronRight className="h-4 w-4" />
             </Button>
 
-            <Button
-              variant="outline"
-              className="w-full justify-between"
-            >
-              Privacy Policy
-              <ChevronRight className="h-4 w-4" />
+            <Button variant="outline" className="w-full justify-between active:scale-[0.98] transition">
+              Security Settings
+              <Shield className="h-4 w-4" />
+            </Button>
+
+            <Button variant="outline" className="w-full justify-between active:scale-[0.98] transition text-red-500">
+              Delete Account
+              <Trash2 className="h-4 w-4" />
             </Button>
           </CardContent>
         </Card>
 
-        {/* Appearance Card */}
-        <Card className="rounded-2xl">
+        {/* APPEARANCE */}
+        <Card className="rounded-2xl shadow-sm">
           <CardHeader>
-            <CardTitle className="text-base">
-              Appearance
-            </CardTitle>
+            <CardTitle className="text-base">Appearance</CardTitle>
           </CardHeader>
 
           <CardContent className="space-y-4">
 
-            {/* Theme Switch */}
+            {/* Theme */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                {theme === "dark" ? (
-                  <Moon className="h-4 w-4" />
-                ) : (
-                  <Sun className="h-4 w-4" />
-                )}
-
+                {theme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                 <span>Dark Mode</span>
               </div>
 
@@ -105,91 +104,96 @@ export default function SettingsPage() {
 
             <Separator />
 
-            {/* More Theme Options (Sheet Example) */}
+            {/* Theme Sheet */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full justify-between"
-                >
+                <Button variant="outline" className="w-full justify-between active:scale-[0.98] transition">
                   Theme Options
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </SheetTrigger>
 
-              <SheetContent side="bottom" className="h-64">
+              <SheetContent side="bottom" className="h-72">
                 <div className="space-y-4">
-                  <h2 className="text-lg font-semibold">
-                    Choose Theme
-                  </h2>
+                  <h2 className="text-lg font-semibold">Choose Theme</h2>
 
                   <div className="grid gap-2">
-                    <Button
-                      variant="outline"
-                      onClick={() => setTheme("light")}
-                    >
-                      ☀ Light
-                    </Button>
-
-                    <Button
-                      variant="outline"
-                      onClick={() => setTheme("dark")}
-                    >
-                      🌙 Dark
-                    </Button>
-
-                    <Button
-                      variant="outline"
-                      onClick={() => setTheme("system")}
-                    >
-                      💻 System
-                    </Button>
+                    <Button onClick={() => setTheme("light")}>☀ Light</Button>
+                    <Button onClick={() => setTheme("dark")}>🌙 Dark</Button>
+                    <Button onClick={() => setTheme("system")}>💻 System</Button>
                   </div>
                 </div>
               </SheetContent>
             </Sheet>
+
+            {/* Language */}
+            <Button variant="outline" className="w-full justify-between">
+              Language
+              <Globe className="h-4 w-4" />
+            </Button>
           </CardContent>
         </Card>
 
-        {/* Notifications */}
-        <Card className="rounded-2xl">
+        {/* PREFERENCES */}
+        <Card className="rounded-2xl shadow-sm">
           <CardHeader>
-            <CardTitle className="text-base">
-              Notifications
-            </CardTitle>
+            <CardTitle className="text-base">Preferences</CardTitle>
           </CardHeader>
 
-          <CardContent>
+          <CardContent className="space-y-4">
+
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
+              <span className="flex items-center gap-2">
                 <Bell className="h-4 w-4" />
-                <span>Enable Notifications</span>
-              </div>
+                Notifications
+              </span>
 
               <Switch
                 checked={notifications}
                 onCheckedChange={setNotifications}
               />
             </div>
+
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <Download className="h-4 w-4" />
+                Offline Mode
+              </span>
+
+              <Switch
+                checked={offlineMode}
+                onCheckedChange={setOfflineMode}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <Smartphone className="h-4 w-4" />
+                Analytics
+              </span>
+
+              <Switch
+                checked={analytics}
+                onCheckedChange={setAnalytics}
+              />
+            </div>
           </CardContent>
         </Card>
 
-        {/* About */}
-        <Card className="rounded-2xl">
+        {/* ABOUT */}
+        <Card className="rounded-2xl shadow-sm">
           <CardHeader>
-            <CardTitle className="text-base">
-              About
-            </CardTitle>
+            <CardTitle className="text-base">About</CardTitle>
           </CardHeader>
 
-          <CardContent className="space-y-2 text-sm text-muted-foreground">
+          <CardContent className="text-sm text-muted-foreground space-y-2">
             <div className="flex items-center gap-2">
               <Info className="h-4 w-4" />
               CodeWithTabish v1.0.0
             </div>
 
             <p>
-              Built with Next.js, shadcn/ui, and PWA technology.
+              Built with Next.js, shadcn/ui, TailwindCSS and PWA support.
             </p>
           </CardContent>
         </Card>
