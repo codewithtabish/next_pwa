@@ -30,7 +30,7 @@ export default async function RootLayout({children,params}:LayoutProps) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col dark:bg-gray-800 bg-gray-400 dark:text-gray-200 text-gray-900">{children}</body>
+      <body className="min-h-full flex flex-col dark:bg-gray-800   text-gray-900">{children}</body>
     </html>
   );
 }

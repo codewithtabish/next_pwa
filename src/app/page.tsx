@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import React from 'react'
 
@@ -11,6 +12,10 @@ const HomePage = () => {
         <Link href={'/about'}>
       About Page
       </Link>
+      <br />
+      <br />
+      <Button variant="outline" className='cursor-pointer'>Button</Button>
+      
 
     </div>
   )
