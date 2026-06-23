@@ -76,6 +76,8 @@ export default function SettingsPage() {
               Delete Account
               <Trash2 className="h-4 w-4" />
             </Button>
+             {/* C:\Program Files\Eclipse Adoptium\jdk-17.0.19.10-hotspot */}
+            {/* C:\Users\TABISH\AppData\Local\Android\Sdk */}
           </CardContent>
         </Card>
 
