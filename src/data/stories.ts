@@ -9,6 +9,7 @@ export const stories: Story[] = [
   },
 
   {
+    
     id: 2,
     title: "The Broken Clock",
     content:
@@ -106,8 +107,14 @@ export const stories: Story[] = [
       "At 2 AM, a junior developer deployed his first application. There were no celebrations, no audience — just silence and a running server.\n\nBut for him, it was the beginning of everything.\n\nEvery expert was once a beginner who deployed their first broken app.",
   },
   {
-    id: 15,
+    id: 16,
     title: "The Last Deployment",
+    content:
+      "At 2 AM, a junior developer deployed his first application. There were no celebrations, no audience — just silence and a running server.\n\nBut for him, it was the beginning of everything.\n\nEvery expert was once a beginner who deployed their first broken app.",
+  },
+  {
+    id: 17,
+    title: "The LATEST STORY OF THE YEAR",
     content:
       "At 2 AM, a junior developer deployed his first application. There were no celebrations, no audience — just silence and a running server.\n\nBut for him, it was the beginning of everything.\n\nEvery expert was once a beginner who deployed their first broken app.",
   },
